@@ -10,17 +10,17 @@ default: &default
 
 development:
   <<: *default
-  database: <%= ENV.fetch('DEVELOPMENT_DB')  %>
+  database: <%= ENV['DEVELOPMENT_DB'] %>
 
 test:
   <<: *default
   username: <%= ENV['TEST_POSTGRES_USER'] %>
   password: <%= ENV['TEST_POSTGRES_PASS'] %>
-  database: <%= ENV.fetch('TEST_DB')  %>
+  database: <%= ENV['TEST_DB'] %>
 
 staging:
   <<: *default
-  database: <%= ENV.fetch('STAGING_DB')  %>
+  database: <%= ENV['STAGING_DB'] %>
   username: <%= ENV['STAGING_POSTGRES_USER'] %>
   password: <%= ENV['STAGING_POSTGRES_PASS'] %>
   port: 5433
@@ -28,7 +28,7 @@ staging:
 
 production:
   <<: *default
-  database: <%= ENV.fetch('TEST_DB')  %>
+  database: <%= ENV['TEST_DB']  %>
   username: <%= ENV['PRODUCTION_POSTGRES_USER'] %>
   password: <%= ENV['PRODUCTION_POSTGRES_PASS'] %>
   port: 5432
